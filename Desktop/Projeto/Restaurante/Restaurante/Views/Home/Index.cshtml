@@ -1,0 +1,16 @@
+﻿@model Restaurante.Models.Mesas
+@{ViewBag.Title = "Index";}
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+<div class="l_t10 display">
+    <div>
+        <button type="submit" name="B" value="Create" class="Color_G full">Criar Mesa - total @Model.M.Count</button>
+    </div>
+    <div>
+        <button type="submit" name="B" value="Dell" class="Color_O full">Apagar todas as Mesas</button>
+    </div>
+</div>
+}
+
+
+

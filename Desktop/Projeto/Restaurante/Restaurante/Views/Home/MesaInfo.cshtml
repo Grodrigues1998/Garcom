@@ -1,0 +1,68 @@
+﻿@model Restaurante.Models.Mesa
+
+@{ViewBag.Title = "MesaInfo";}
+
+<div>
+    <h2>
+        @if (Model.Situacao.ToString() == "1")
+        {@Html.Raw("Oucupado");
+    }
+    else
+    {@Html.Raw("Disponivel");
+}
+    </h2>
+</div>
+<strong>Para pesquisar pedidos já existentes não preencha os campos do cardapio e bebida</strong>
+<div id="pedido">
+    <form action="MesaPedido" method="post">
+        <div class="container">
+            <div class="cliente">
+                <label>Nome do Cliente:</label>
+                @if (Model.Nomecliente == "")
+                {@Html.Raw("<input type='text' name='Nomecliente' required>")}
+            else
+            { @Model.Nomecliente;
+        }
+            </div>
+            <div class="d_50">
+                <h4>Cardapio: </h4>
+                <div class="d_50">
+                    <ul>
+                        <li><label>Arroz e Feijão</label></li>
+                        <li><label>Filé à Parmediana</label></li>
+                        <li><label>Strogonoff</label></li>
+                    </ul>
+                </div>
+                <div class="d_50">
+                    <ul>
+                        <li><input type="number" placeholder="Quantidade" value="0" name="P1" min="0" step="1"/></li>
+                        <li><input type="number" placeholder="Quantidade" value="0" name="P2" min="0"step="1"/></li>
+                        <li><input type="number" placeholder="Quantidade" value="0" name="P3" min="0"step="1"/></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d_50">
+                <h4>Bebidas</h4>
+                <div class="d_50">
+                    <ul>
+                        <li><label>Coca_Cola</label></li>
+                        <li><label>Sukita</label></li>
+                        <li><label>Pepsi</label></li>
+                    </ul>
+                </div>
+                <div class="d_50">
+                    <ul>
+                        <li><input type="number" placeholder="Quantidade" value="0" name="B1" min="0" step="1"/></li>
+                        <li><input type="number" placeholder="Quantidade" value="0" name="B2" min="0" step="1"/></li>
+                        <li><input type="number" placeholder="Quantidade" value="0" name="B3" min="0" step="1"/></li>
+                    </ul>
+                </div>
+            </div>
+            <button type="submit" name="Cod" value="@Model.Numero">Realizar/Pesquisar Pedido(s)</button>
+        </div>
+    </form>
+</div>
+
+<form action="MesaInfo" method="post">
+    <button type="submit" value=@Model.Numero name="M" id="limpar">Liberar Mesa</button>
+</form>

@@ -1,0 +1,31 @@
+﻿@model Restaurante.Models.MesaPedidos
+@{
+    ViewBag.Title = "MesaPedido";
+    string codigo = "";
+    for (int i = 0; i < Model.Pedidos.Count; i++)
+    {
+        string clss = "Color_G";
+        string sit = "Entregue";
+        if (Model.Pedidos[i].Situacao != '2')
+        {
+            clss = "Color_O";
+            sit = "Esperando Chegar";
+        }
+        if (i % 5 == 0) { codigo += "<div class='l_t10 display'>"; }
+
+        codigo += "<div class='"+clss+"'>";
+        codigo += "<h4>"+Model.Pedidos[i].Oque+" nº: " + Model.Pedidos[i].Id + "</h4>";
+        codigo += "<h4>" + sit + "</h4>";
+        codigo += "<ul>";
+        codigo += "<li><p>" + Model.Pedidos[i].Oque + "_1: x" + Model.Pedidos[i].P1 + "</p></li>";
+        codigo += "<li><p>" + Model.Pedidos[i].Oque + "_2: x" + Model.Pedidos[i].P2 + "</p></li>";
+        codigo += "<li><p>" + Model.Pedidos[i].Oque + "_3: x" + Model.Pedidos[i].P3 + "</p></li>";
+        codigo += "</ul>";
+        codigo += "</div>";
+
+        if (i % 5 == 4) { codigo += "</div>"; }
+
+    }
+    if (codigo.Length >=12 && codigo.Substring(codigo.Length - 12) != "</div></div>") { codigo += "</div>"; }
+}
+@Html.Raw(codigo)

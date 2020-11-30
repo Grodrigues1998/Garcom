@@ -1,0 +1,35 @@
+﻿@model Restaurante.Models.PedidoInfo
+@{
+    ViewBag.Title = "PedidosInfo";
+}
+<div class="l_t10 display">
+    <div class="Color_G">
+        <h3>
+            Situação: @{ if (@Model.Situacao == '2')
+                {@Html.Raw("Entregue")}
+            else if (@Model.Situacao == '1')
+            { @Html.Raw("Pronto")}
+        else
+        {@Html.Raw("Preparando")} }
+        </h3>
+        <ul>
+            <li><p>Mesa: @Model.Numero</p></li>
+            <li><p>Cliente: @Model.Cliente</p></li>
+
+            @if (@Model.Oque == "Bebida")
+            {
+                @Html.Raw("<li><p>Bebida_1 : x" + Model.P1 + "</p></li>")
+                @Html.Raw("<li><p>Bebida_2 : x" + Model.P2 + "</p></li>")
+                @Html.Raw("<li><p>Bebida_3 : x" + Model.P3 + "</p></li>")
+            }
+            else
+            {
+                @Html.Raw("<li><p>Prato_1 : x" + Model.P1 + "</p></li>")
+                @Html.Raw("<li><p>Prato_2 : x" + Model.P2 + "</p></li>")
+                @Html.Raw("<li><p>Prato_3 : x" + Model.P3 + "</p></li>")
+            }
+        </ul>
+    </div>
+</div>
+
+

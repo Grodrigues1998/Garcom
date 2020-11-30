@@ -1,0 +1,22 @@
+﻿@model Restaurante.Models.Cozinha
+@{
+    ViewBag.Title = "Cozinha";
+
+    string codigo = "";
+    for (int i = 0; i < Model.Pratos.Count; i++)
+    {
+        if (i % 5 == 0) { codigo += "<div class='l_t10 display'>"; }
+
+        codigo += "<div class='Color_G'>";
+        codigo += "<h4>Pedido nº: " + Model.Pratos[i].Id + "</h4>";
+        codigo += "<button class='Color_G l_t5 buttom_b buttom_l' type='submit' value='.p" + Model.Pratos[i].Id + "' name='Enviar'>Concluir Pedido</button>";
+        codigo += "<button class='Color_O l_t5 buttom_b buttom_r' type='submit' value='p" + Model.Pratos[i].Id + "' name='Enviar'>Informações</button>";
+        codigo += "</div>";
+
+        if (i % 5 == 4) { codigo += "</div>"; }
+    }
+    if (codigo.Length>=12&&codigo.Substring(codigo.Length - 12) != "</div></div>") { codigo += "</div>"; }
+}
+<form action="PedidosInfo" method="Post">
+    @Html.Raw(codigo);
+</form>

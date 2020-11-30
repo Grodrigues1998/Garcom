@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <nav id="menu" class="navbar">
+        <ul class="l_t10 a_t10">
+            <li>@Html.ActionLink("Sistema de Pedidos de Garçom", "Index", "Home")</li>
+            <li>@Html.ActionLink("Mesas", "Mesas", "Home")</li>
+            <li>@Html.ActionLink("Pedidos", "Pedidos", "Home")</li>
+            <li>@Html.ActionLink("Cozinha", "Cozinha", "Home")</li>
+            <li>@Html.ActionLink("Copa", "Copa", "Home")</li>
+
+        </ul>
+    </nav>
+
+
+
+    <div class="l_t10">
+        <h2>@ViewBag.Message</h2>
+        @RenderBody()
+    </div>
+
+    <div>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Sistema de Pedidos de Garçom</p>
+        </footer>
+    </div>
+</body>
+</html>
+<link href="~/Content/Site.css" rel="stylesheet" />
+<link href="~/Content/Menu.css" rel="stylesheet" />
+<link href="~/Content/cards.css" rel="stylesheet" />
+<link href="~/Content/Form.css" rel="stylesheet" />

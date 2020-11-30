@@ -1,0 +1,70 @@
+﻿.display {
+    display: inline-block;
+    text-align: center;
+    min-height:150px;
+}
+
+    .display p {
+        display: inline-block;
+    }
+    .display div ul{
+        position:relative;
+        margin:0px;
+        padding-left:0px;
+    }
+    .display div ul li{
+        list-style:none;
+        width:100%;
+        margin-top:5px;
+        text-align:center;
+    }
+    .display div ul li p {
+        text-align:left;
+        display:inline;
+        margin-top:20px;
+    }
+
+    .display div {
+        position: relative;
+        display: inline-block;
+        width: 18%;
+        min-height:140px;
+        margin: 5px 5px 5px 5px;
+        padding-bottom:10px;
+    }
+
+        .display div.Color_G {
+            border: solid;
+            border-color: lime;
+            background-color: #d2ff4d;
+        }
+
+        .display div.Color_O {
+            border: solid;
+            border-color: orange;
+            background-color: #FFD9B2;
+        }
+
+        .display div button.Color_G {
+            background-color: lime;
+            border: 2px solid Lime;
+            padding: 3px;
+            cursor: pointer;
+            height: 50px;
+        }
+
+        .display div button.Color_O {
+            background-color: orange;
+            border: 2px solid orange;
+            padding: 3px;
+            cursor: pointer;
+            height:50px;
+        }
+        .display div button.full {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            cursor: pointer;
+        }

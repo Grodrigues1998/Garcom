@@ -1,0 +1,41 @@
+﻿@model Restaurante.Models.Pedidos
+@{
+    ViewBag.Title = "Pedidos";
+
+    string codigo = "";
+    for (int i = 0; i < Model.Pratos.Count; i++)
+    {
+        if (i % 5 == 0) { codigo += "<div class='l_t10 display'>"; }
+
+        codigo += "<div class='Color_G'>";
+        codigo += "<h4>Prato da Mesa: " + Model.Pratos[i].Numero + "</h4>";
+        codigo += "<button class='Color_G l_t5 buttom_b buttom_l' type='submit' value='.p" + Model.Pratos[i].Id + "' name='Enviar'>entregar pedido</button>";
+        codigo += "<button class='Color_O l_t5 buttom_b buttom_r' type='submit' value='p" + Model.Pratos[i].Id + "' name='Enviar'>Informações</button>";
+        codigo += "</div>";
+
+        if (i % 5 == 4) { codigo += "</div>"; }
+
+    }
+    if (codigo.Length>=12 && codigo.Substring(codigo.Length - 12) != "</div></div>") { codigo += "</div>"; }
+
+    string codigo2 = "";
+    for (int i = 0; i < Model.Bebidas.Count; i++)
+    {
+        if (i % 5 == 0) { codigo2 += "<div class='l_t10 display'>"; }
+
+        codigo2 += "<div class='Color_G'>";
+        codigo2 += "<h4>Prato da Mesa: " + Model.Bebidas[i].Numero + "</h4>";
+        codigo2 += "<button class='Color_G l_t5 buttom_b buttom_l' type='submit' value='.b" + Model.Bebidas[i].Id + "' name='Enviar'>entregar pedido</button>";
+        codigo2 += "<button class='Color_O l_t5 buttom_b buttom_r' type='submit' value='b" + Model.Bebidas[i].Id + "' name='Enviar'>Informações</button>";
+        codigo2 += "</div>";
+
+        if (i % 5 == 4) { codigo2 += "</div>"; }
+    }
+    if (codigo2.Length>=12&&codigo2.Substring(codigo2.Length - 12) != "</div></div>") { codigo2 += "</div>"; }
+}
+<form action="PedidosInfo" method="Post">
+    <h2> Pratos </h2>
+    @Html.Raw(codigo)
+    <h2> Bebidas </h2>
+    @Html.Raw(codigo2)
+</form>

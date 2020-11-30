@@ -1,0 +1,25 @@
+﻿@model Restaurante.Models.Mesas
+@{
+    ViewBag.Title = "Mesas";
+}
+@{ string codigo = "";
+    for (int i = 1; i < Model.M.Count + 1 && Model.M[i - 1] != null; i++)
+    {
+        string sit="Disponivel";
+        string clss="Color_G";
+
+        if (Model.M[i - 1].Situacao == '1') { sit = "Oucupado ";clss = "Color_O"; }
+        if (i % 5 == 1){codigo += "<div class='l_t10 display'>";}
+        codigo += "<div class='"+clss+"'>";
+        codigo += "<p>Mesa " + i + " - "+sit;
+        codigo += "</p>";
+        codigo += "<button type = 'submit' name='M' value ='." + i + "' class='"+ clss + " l_t10 buttom_b buttom_l'>Informações</button>";
+        codigo += "</div>";
+
+        if (i % 5 == 0){codigo += "</div>";}
+    }
+}
+<form action="MesaInfo" method="post">
+    @Html.Raw(codigo)
+</form>
+    
